@@ -2,36 +2,64 @@
 <head>
   <title>Hoa's Technical Blog</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="your-stylesheet-link-here.css">
+    <link href='../stylesheet/default.css' rel='stylesheet' type='text/css'>
+    <link href='../stylesheet/blog-stylesheet.css' rel='stylesheet' type='text/css'>
 </head>
 
-<main>
-  <h1>Array and Hashes</h1>
-  <h2>What are they? And what should I use?</h2>
-  <h4>January 12, 2014</h4>
+<body>
+  <div class="body">
+  <div class="header">
+    <h1>Hoa The Nguyen</h1>
+  </div>
+  <div class="link-bar">
+    <ul>
+      <li><a href="/">About Me</a></li>
+      <li>
+        <a href="#">Blog</a>
+        <ul>
+          <li><a href="./t1-git-blog.html">T1. Git</a></li>
+          <li><a href="./c1-chefs-kitchen.html">C1. Chef's Kitchen</a></li>
+          <li><a href="./t2-css-design.html">T2. CSS Design</a></li>
+          <li><a href="./t3-arrays-hashes.html.html">T3. Array &amp; Hashes</a></li>
+          <li><a href="./c3_thinking-style.html">C3. Thinking Style</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Project</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+  <div class="main">
+    <main>
+      <h1>Array and Hashes</h1>
+      <h2>What are they? And what should I use?</h2>
+      <h4>January 12, 2014</h4>
 
-  <section>
-    <h1>What is an array and what are hashes?</h1>
+      <section>
+        <h1>What is an array and what are hashes?</h1>
 
-    <h2>Array</h2>
-    <p>
-      Arrays are one way to have a collection of data.  Array in Ruby is also very unique compared to any other languages I have dealt with.  Think of array as a train.  Each car of the train is addressed as car 0, 1, 2, 3, and etc.  Remember it starts at 0.  Then each of these cars hold one person.  The person symbolizes as data.  That is kind of what an array is.  The unique thing about Arrays in Ruby us that I am used to Array having the same type for every car in the array.  Like for instance [1, 2, 3] is an array where at car 0 holds the number 1, car 1 hold the number 2, and car 2 holds the number 3.  All hold a number type data.  But in Ruby, you are not limited by this.  You can have ["one", 2, 3].  The thing that changed is that car 0 now has a word(String) called "one."  This word is different from the number and is allowed in the array in Ruby.  I find that interesting.  Not sure what you can gain by doing this, but I do see it adds flexibility in coding.
-    </p>
+        <h2>Array</h2>
+        <p>
+          Arrays are one way to have a collection of data.  Array in Ruby is also very unique compared to any other languages I have dealt with.  Think of array as a train.  Each car of the train is addressed as car 0, 1, 2, 3, and etc.  Remember it starts at 0.  Then each of these cars hold one person.  The person symbolizes as data.  That is kind of what an array is.  The unique thing about Arrays in Ruby us that I am used to Array having the same type for every car in the array.  Like for instance [1, 2, 3] is an array where at car 0 holds the number 1, car 1 hold the number 2, and car 2 holds the number 3.  All hold a number type data.  But in Ruby, you are not limited by this.  You can have ["one", 2, 3].  The thing that changed is that car 0 now has a word(String) called "one."  This word is different from the number and is allowed in the array in Ruby.  I find that interesting.  Not sure what you can gain by doing this, but I do see it adds flexibility in coding.
+        </p>
 
-    <h2>Hashes</h2>
-    <p>
-      Hashes are another way to have a collection of data.  It is different from array by the way data are being held.  Hashes uses something called key and value.  Key is similar to the address of the car in a train, except it isn't always in sequential order starting from 0.  You can have that, but does not happen all the time.  The value is the exact same as the person in the car, it is just data!  Hashes are not linked together like trains as arrays are.  I like to think hash is similar to a neighborhood of houses.  If you walk down the street of houses, you will notice that the address number does not go in order.  Let me give an example of a hash.  {"12"=>1, "14"=>2, "17"=>3}  You will see in this hash there are 3 houses.  And the data are numbers.  The first address is "12", next is "14", and finally "17".  Notice the address are not in sequetial order like in array.  In fact, it did not have to be a number!  The address can be a string!
-    </p>
-  </section>
+        <h2>Hashes</h2>
+        <p>
+          Hashes are another way to have a collection of data.  It is different from array by the way data are being held.  Hashes uses something called key and value.  Key is similar to the address of the car in a train, except it isn't always in sequential order starting from 0.  You can have that, but does not happen all the time.  The value is the exact same as the person in the car, it is just data!  Hashes are not linked together like trains as arrays are.  I like to think hash is similar to a neighborhood of houses.  If you walk down the street of houses, you will notice that the address number does not go in order.  Let me give an example of a hash.  {"12"=>1, "14"=>2, "17"=>3}  You will see in this hash there are 3 houses.  And the data are numbers.  The first address is "12", next is "14", and finally "17".  Notice the address are not in sequetial order like in array.  In fact, it did not have to be a number!  The address can be a string!
+        </p>
+      </section>
 
-  <section>
-    <h1>Which should I choose?</h1>
-    <p>
-      By now I hope you understand what array and hashes are.  So which one should I use?  They both have their advantages and disadvantages. 
-    </p>
-      I would use array if you need something basic.  You just want to manipulate a set of data and that is it.  So you want to compare a list of Strings?  Use an Array of Strings!  It is simple and can do all the things you need in a list.  You can sort the data, look in each car with ease, and it is just simple!
-    <p>
-      When I need to use a Hash, is when I have a specific set of data.  Let's say I have information on a person.  I would want a key of the person's name, age, and height.  So I'll make a hash of myself.  {"name"=>"Hoa Nguyen","age"=>29,"height"=>"5 foot 11 inches"}  So this says my name is Hoa Nguyen, who is 29 years old, and 5 foot 11 inches tall!  See how I got a specific set of data?  The key/address helps define what the data is.  Hash is great for this need.
-    </p>
-  </section>
-</main>
+      <section>
+        <h1>Which should I choose?</h1>
+        <p>
+          By now I hope you understand what array and hashes are.  So which one should I use?  They both have their advantages and disadvantages. 
+        </p>
+          I would use array if you need something basic.  You just want to manipulate a set of data and that is it.  So you want to compare a list of Strings?  Use an Array of Strings!  It is simple and can do all the things you need in a list.  You can sort the data, look in each car with ease, and it is just simple!
+        <p>
+          When I need to use a Hash, is when I have a specific set of data.  Let's say I have information on a person.  I would want a key of the person's name, age, and height.  So I'll make a hash of myself.  {"name"=>"Hoa Nguyen","age"=>29,"height"=>"5 foot 11 inches"}  So this says my name is Hoa Nguyen, who is 29 years old, and 5 foot 11 inches tall!  See how I got a specific set of data?  The key/address helps define what the data is.  Hash is great for this need.
+        </p>
+      </section>
+    </main>
+  </div>
+  <div class="link-bar"></div>
+  <div class="footer"></div>
+</body>

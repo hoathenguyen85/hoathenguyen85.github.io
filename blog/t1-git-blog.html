@@ -1,42 +1,70 @@
 <!DOCTYPE html>
 <head>
-  <title>Hoa's GIT Blog</title>
+  <title>Hoa's Technical Blog</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="your-stylesheet-link-here.css">
+    <link href='../stylesheet/default.css' rel='stylesheet' type='text/css'>
+    <link href='../stylesheet/blog-stylesheet.css' rel='stylesheet' type='text/css'>
 </head>
 
-<main>
-  <h1>GIT it?</h1>
-  <h2>On why to use GIT!</h2>
-  <h4>December 23, 2014</h4>
+<body>
+  <div class="body">
+  <div class="header">
+    <h1>Hoa The Nguyen</h1>
+  </div>
+  <div class="link-bar">
+    <ul>
+      <li><a href="/">About Me</a></li>
+      <li>
+        <a href="#">Blog</a>
+        <ul>
+          <li><a href="./t1-git-blog.html">T1. Git</a></li>
+          <li><a href="./c1-chefs-kitchen.html">C1. Chef's Kitchen</a></li>
+          <li><a href="./t2-css-design.html">T2. CSS Design</a></li>
+          <li><a href="./t3-arrays-hashes.html.html">T3. Array &amp; Hashes</a></li>
+          <li><a href="./c3_thinking-style.html">C3. Thinking Style</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Project</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+  <div class="main">
+    <main>
+      <h1>GIT it?</h1>
+      <h2>On why to use GIT!</h2>
+      <h4>December 23, 2014</h4>
 
-  <section>
-    <h1>What are the benefits of version control?</h1>
-    <p>
-      There are many benefits to using a version control system.  If the whole world understood the power of version control, every company would be using it.  It shouldn't be specific to programmers only.  Every company makes some kind of computer file(be it Word, Powerpoint, code files, or diagrams), version control can help a lot.   First, it helps keeps a history log of all the files you edited and what changes happened.  Second, it helps people colaborate their work with other people by allowing multiple people to work together.  And finally the not obvious reason, the power of version control helps lower file counts and duplicates from happening.  For these 3 reasons, you should love the idea of version control.
-    </p>
-    <p>
-      Have you ever wrote a paper, then you deleted a whole paragraph and saved it?  And to make matters worse, you already closed the program, and you went back to work on it an hour later.  What would you do then?  Sorry to say this, but you are pretty much SOL.  But with version control, assuming you commit well between changes, you won't have that issue.  You will be able the revert to an earlier version where you had that paragraph.  Isn't that nice?  What? You don't want to revert because you like the new stuff you typed?  Well version control got you covered there!  Version control also keeps track of changes of the file.  If you want to know the the difference between your current work and the old work, version control will show you the missing paragraph.  Then copy and paste that missing paragraph into your current work.  Just imagine having a nice safety line to rely on if you mess up.
-    </p>
-    <p>
-      Have you ever worked on a huge arse Word document with a teammate.  Then there is a section you wanted to update, but oh no, your teammate is working on another section!  Should you just copy and paste the file, just so you can put in your thoughts before you forget?  But think about the time it will take to merge your work with your teammate's work.  You ain't gonna be perfect, something bad could happen, like deleting one of his paragraph by accident!  Okay, what about wait for your teammate to finish, then you can put in your work.  But wait, that seems inefficient does it not?  if only there was a nice way to work in parallel!  With version control you can work in parallel.  Multiple people can check out the same file and work on it at the same time.  When it is time to merge the work together, version control can compare the work of multiple people and merge the files together by itself!  If there is a conflict that version control does not know how to merge, then it will be nice and spit an error out showing where the conflict is.  Then tells you how you want to fix it.  Version control is very nice for collaboration work.
-    </p>
-    <p>
-      So you might be wondering about my third reason.  If you look at the previous paragraph, you might be able to see where things can go wild!  The part about duplicating the file so differnt people can work on it.  Ever work on a file, then your boss is like, "E-mail me the latest revision of this report."  You e-mail, then you were like wait, "I emailed the wrong file, the updated file is on my USB stick!"  Or your teammate is like, "My work is missing, let me e-mail your my revision boss."  Think about where these files have existed.  Sounds like a waste of space no?  Think about if you saved every revision of the report ever made?  That is just going to exponentially grow!  With version control, it is a centralized place where everybody can get the file.  Now your boss will say, "Okay, let me download the latest revision of the report."  Also I do not think you notice, but as each revsion happens, version control only holds the difference of each revision.  If paragraph has changed in 10 revisions, it will not be duplicated in space 10 more times.  For those people interested in not buying terabyte of HDD space for redundant data, this sounds very nice!
-    </p>
-  </section>
+      <section>
+        <h1>What are the benefits of version control?</h1>
+        <p>
+          There are many benefits to using a version control system.  If the whole world understood the power of version control, every company would be using it.  It shouldn't be specific to programmers only.  Every company makes some kind of computer file(be it Word, Powerpoint, code files, or diagrams), version control can help a lot.   First, it helps keeps a history log of all the files you edited and what changes happened.  Second, it helps people colaborate their work with other people by allowing multiple people to work together.  And finally the not obvious reason, the power of version control helps lower file counts and duplicates from happening.  For these 3 reasons, you should love the idea of version control.
+        </p>
+        <p>
+          Have you ever wrote a paper, then you deleted a whole paragraph and saved it?  And to make matters worse, you already closed the program, and you went back to work on it an hour later.  What would you do then?  Sorry to say this, but you are pretty much SOL.  But with version control, assuming you commit well between changes, you won't have that issue.  You will be able the revert to an earlier version where you had that paragraph.  Isn't that nice?  What? You don't want to revert because you like the new stuff you typed?  Well version control got you covered there!  Version control also keeps track of changes of the file.  If you want to know the the difference between your current work and the old work, version control will show you the missing paragraph.  Then copy and paste that missing paragraph into your current work.  Just imagine having a nice safety line to rely on if you mess up.
+        </p>
+        <p>
+          Have you ever worked on a huge arse Word document with a teammate.  Then there is a section you wanted to update, but oh no, your teammate is working on another section!  Should you just copy and paste the file, just so you can put in your thoughts before you forget?  But think about the time it will take to merge your work with your teammate's work.  You ain't gonna be perfect, something bad could happen, like deleting one of his paragraph by accident!  Okay, what about wait for your teammate to finish, then you can put in your work.  But wait, that seems inefficient does it not?  if only there was a nice way to work in parallel!  With version control you can work in parallel.  Multiple people can check out the same file and work on it at the same time.  When it is time to merge the work together, version control can compare the work of multiple people and merge the files together by itself!  If there is a conflict that version control does not know how to merge, then it will be nice and spit an error out showing where the conflict is.  Then tells you how you want to fix it.  Version control is very nice for collaboration work.
+        </p>
+        <p>
+          So you might be wondering about my third reason.  If you look at the previous paragraph, you might be able to see where things can go wild!  The part about duplicating the file so differnt people can work on it.  Ever work on a file, then your boss is like, "E-mail me the latest revision of this report."  You e-mail, then you were like wait, "I emailed the wrong file, the updated file is on my USB stick!"  Or your teammate is like, "My work is missing, let me e-mail your my revision boss."  Think about where these files have existed.  Sounds like a waste of space no?  Think about if you saved every revision of the report ever made?  That is just going to exponentially grow!  With version control, it is a centralized place where everybody can get the file.  Now your boss will say, "Okay, let me download the latest revision of the report."  Also I do not think you notice, but as each revsion happens, version control only holds the difference of each revision.  If paragraph has changed in 10 revisions, it will not be duplicated in space 10 more times.  For those people interested in not buying terabyte of HDD space for redundant data, this sounds very nice!
+        </p>
+      </section>
 
-  <section>
-    <h1>How does GIT help you keep track of changes?</h1>
-    <p>
-      Yeah, I have pretty much answered this question already.  So I'll keep this short.  So GIT is a version control system.  I already said that version control keeps track of changes in each revisions.  Well that is how GIT helps.  You can look a file at the current revision and compare it to an earlier revision.  You will see what got added, or what got deleted. 
-    </p>
-  </section>
+      <section>
+        <h1>How does GIT help you keep track of changes?</h1>
+        <p>
+          Yeah, I have pretty much answered this question already.  So I'll keep this short.  So GIT is a version control system.  I already said that version control keeps track of changes in each revisions.  Well that is how GIT helps.  You can look a file at the current revision and compare it to an earlier revision.  You will see what got added, or what got deleted. 
+        </p>
+      </section>
 
-  <section>
-    <h1>Why use GitHub to store your code?</h1>
-      Github is a great place to store your code.  If you have a great idea for a project, other people can look at your code and build upon it.  Two heads are better than one afterall.  The idea of collaborating with multiple peole at the same time with a version control system is a plus too!  Also, have you ever tried to setup a version control server, then setup an Apache web server for connection to your version control server?  Trust me, that is a lot of work.  Github alread has a framework setup for user security, web server, and sets up a version control server for you!  And all you have to do is sign up and add repositories.  Also with Github being public, it helps advertise your genius mind out to the public.  Companies will recognize you as a developer.  That is what you want right?  Well? Go put your code in Github now!  What is holding you back?
-    <p>
-    </p>
-  </section>
-</main>
+      <section>
+        <h1>Why use GitHub to store your code?</h1>
+          Github is a great place to store your code.  If you have a great idea for a project, other people can look at your code and build upon it.  Two heads are better than one afterall.  The idea of collaborating with multiple peole at the same time with a version control system is a plus too!  Also, have you ever tried to setup a version control server, then setup an Apache web server for connection to your version control server?  Trust me, that is a lot of work.  Github alread has a framework setup for user security, web server, and sets up a version control server for you!  And all you have to do is sign up and add repositories.  Also with Github being public, it helps advertise your genius mind out to the public.  Companies will recognize you as a developer.  That is what you want right?  Well? Go put your code in Github now!  What is holding you back?
+        <p>
+        </p>
+      </section>
+    </main>
+  </div>
+  <div class="link-bar"></div>
+  <div class="footer"></div>
+</body>
