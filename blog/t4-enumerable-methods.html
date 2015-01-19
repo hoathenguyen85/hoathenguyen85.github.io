@@ -30,14 +30,16 @@
   </div>
   <div class="main">
     <main>
-      <h1>Title</h1>
-      <h2>Caption</h2>
-      <h4>Date</h4>
+      <h1>Let's group up!</h1>
+      <h2>How to use group_by method</h2>
+      <h4>January 18, 2014</h4>
 
       <section>
         <p>
+          Well let's talk about the group_by method in the Enumerable class.  It is quite a useful method!  Note that any class that includes the Enumerable class can use this method.  Like the Array and Hash class.  What it does, is that it gives a block and let you group whatever in the collection the way you want it.  Like you have an Array of cats and dogs, but they are mingling with each other in the Array!  Got to do some work to organize them right?  Nope!  With group_by, this helps seperate them into there own area and group them!
         </p>
         <p>
+          So here is an example of what I am saying.  Here is my Array of cats and dogs.  pets = [Cat1, Cat2, Dog1, Cat3, Dog2, Dog3]  Now lets do the following code.  pets.group_by{|pet| pet.is_cat? ? "CAT HERE" : "DOG HERE"}  This will return a Hash like this: {"CAT HERE"=>[Cat1, Cat2, Cat3] "DOG HERE"=>[Dog1, Dog2, Dog3]}.  See how nicely this organized your data? 
         </p>
       </section>
     </main>
