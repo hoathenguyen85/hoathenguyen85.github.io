@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <title>Hoa's Blog</title>
+  <title>Hoa's Technical Blog</title>
   <meta charset="UTF-8">
     <link href='../stylesheet/default.css' rel='stylesheet' type='text/css'>
     <link href='../stylesheet/blog-stylesheet.css' rel='stylesheet' type='text/css'>
@@ -30,14 +30,71 @@
   </div>
   <div class="main">
     <main>
-      <h1>Title</h1>
-      <h2>Caption</h2>
-      <h4>Date</h4>
+      <h1>Classy Property</h1>
+      <h2>Classify Your Property!</h2>
+      <h4>January 25, 2015</h4>
 
       <section>
+        <h5>The Code</h5>
         <p>
+          <pre>
+            class Property
+              attr_reader :future_expectation, :address
+              #def future_expectation
+              #  @future_expectation
+              #end
+
+              attr_writer :tax
+              #def tax=(t)
+              #  @tax = t
+              #end
+
+              attr_accessor :price
+              #def price=(p)
+              #  @price = p
+              #end
+              #def price
+              #  @price
+              #end
+
+              def initialize(tax, address)
+                @tax = tax
+                @address = address
+                @future_expectation = PropertyRating.calculate_future(tax, address)
+
+                @price = PropertyCalculator(@tax, @future_expectation)
+              end
+
+              def add_room(dimension, material)
+                # Add room to property
+                # Update new tax caused by this
+                # Update price because of this
+              end
+            end 
+          </pre>
         </p>
         <p>
+          Well hope you read through my class.  Feel scared about what you see?  Well don't worry, let me tell you all about it.  I wrote this because I have an interest in writing a project about a social media website based on rental units.  This is one class that will be in there that talks about the property that a landlord owns.
+        </p>
+        <h5>Instance Variable</h5>
+        <p>
+          Let's talk about the instance variable.  You will notice I use something interesting called attr_reader, attr_writer, and attr_accessor.  The nice thing about these, is that they help shorten your code from writing redundant getter and setter methods for your instance variable.  When you look under each of them, you will see the methods they replace.  attr_reader replaces the getter method, attr_writer replaces the setter method, and the attr_accessor replaces the getter and setter methods for an instance variable.
+        </p>
+        <p>
+          So you may ask, wait there are 3 different reasons to access these instance variables?  Why yes, and I hope I used the right example to explain these reasons.  The reason you want to use attr_reader when you only have read-only access to the instance variable is when you do not want the user to edit the instance variable.  Like in my example I have the address.  Well how I see it, a house will not move (let's forget about mobile homes please), and it would be quite silly to let the user change the address of the property once set in the first place.  Then you see a instance variable called future_expectation, which shows if in the future the house has a good and bad value in the future.  This is a variable where the user has no control on what this can be.  There are some outside factors that help determine this, and all the user can do is see this variable.
+        </p>
+        <p>
+          The second way you can access a variable is with attr_writer, where the user has write-only access to the instance variable.  Once set, you are not allowed to read it.  May sound funny, but there are reasons you want to do this.  My example is the tax instance variable.  I allow the user to type in how much tax is for the property, and it helps evaluates to future_expectation.  But I do not allow people to read it?  Well my reasoning is, if you want to sell the property, hide the fact about how much tax cost.  Yeah I'm shifty like that.  And well, I could not think of a good example...what? don't judge me.
+        </p>
+        <p>
+          The third way is the attr_accessor, where the user get full control of the instance variable.  This is what people think every variable should be, but sometimes it is nice to have the security of attr_reader and attr_writer.  Don't you think so?  I hope I don't have to explain fully of what attr_accessor too.  In my code, i  used the price instance variable as an example.  You want to be able to update the price of the property, as well as see it.  
+        </p>
+        <h5>Methods</h5>
+        <p>
+          Okay how about the methods?  The stuff that does action for my code.  I got the initialize method.  It takes in 2 arguments, which is the tax amount of the property and the address.  You call this by making a new instance of the Property class.  So as example, I can do this: Property.new(1000, "123 Fake St, Fake City, TX 12345")  So this makes a property that has a property tax of $1,000 and is at a Fake Street.  The tax amount and the address seems to also somehow help calculate the future_expectation.  Not sure how, but that is the wonder of the black box that happens there.  Then an estimated price is created by the future_expectation and the tax amount.  And remember that you are able to update the price, if you do not like this estimated price.
+        </p>
+        <p>
+          Then I have one more method called add_room.  In this method, you pass in the dimension of the room, and the material it is made of.  You want to use this if you need to add a room to the property.  It is not finished yet, but it will be implemented.  Based on the comments, it adds the room to the house, then update the tax value, and finally update the price of the property.
         </p>
       </section>
     </main>
