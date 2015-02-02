@@ -30,71 +30,134 @@
   </div>
   <div class="main">
     <main>
-      <h1>Classy Property</h1>
-      <h2>Classify Your Property!</h2>
-      <h4>January 25, 2015</h4>
+      <h1>Lambdas, Procs, and Blocks!</h1>
+      <h2>Oh my!</h2>
+      <h4>February 1, 2015</h4>
 
       <section>
-        <h5>The Code</h5>
         <p>
+          First off I would like to say why I chose to my title in reverse order.  Obviously I am copying Wizard of Oz "Lion, Tigers, and Bears.  Oh my!"  Lamda starts with an L and has 2 syllables like lion, then blocks start with a B and has one syllable.  In this blog, I will be talking them in the order of blocks, procs, and lambda. 
+        </p>
+        <p>
+          So what are blocks, procs, and lambda?  They are a closure type that is used in Ruby.  It is a very strong tool you can use in Ruby.  So what is a closure?  Paul Cantrell at <a href="https://innig.net">https://innig.net</a> says it is the following:
+          <ul>
+            <li>It can be passed around as a value and executed on demand by anyone who has that value, at which time it can refer to variables from the context in which it was created (i.e. it is closed with respect to variable access, in the mathematical sense of the word "closed").</li>
+          </ul>
+          These 3 closure type are cool ways to reuse group of code logic!
+        <p>
+          <h5>Blocks</h5>
           <pre>
-            class Property
-              attr_reader :future_expectation, :address
-              #def future_expectation
-              #  @future_expectation
-              #end
+            def print_cohort(&amps;block)
+              puts block.call
+            end
 
-              attr_writer :tax
-              #def tax=(t)
-              #  @tax = t
-              #end
+            print_cohort { ["Andrew Dye", "Anna MacDonald", "Ayako Kurushima"] }
+            > Andrew Dye
+            > Anna MacDonald
+            > Ayako Kurushima
 
-              attr_accessor :price
-              #def price=(p)
-              #  @price = p
-              #end
-              #def price
-              #  @price
-              #end
+            print_cohort { {1 => "Angel Baek", 2 => "Benjamin Cheng", 3 => "Christopher Thomas Pelnar"} }
+            > {1=>"Angel Baek", 2=>"Benjamin Cheng", 3=>"Christopher Thomas Pelnar"}
 
-              def initialize(tax, address)
-                @tax = tax
-                @address = address
-                @future_expectation = PropertyRating.calculate_future(tax, address)
-
-                @price = PropertyCalculator(@tax, @future_expectation)
-              end
-
-              def add_room(dimension, material)
-                # Add room to property
-                # Update new tax caused by this
-                # Update price because of this
-              end
-            end 
+            print_cohort { "Chris Lintecum, Morgan McCrory, Paul Clegg"] }
+            > Chris Lintecum, Morgan McCrory, Paul Clegg
           </pre>
+           In the example above you see that the print_cohort method somehow prints whatever is between the curly brackets.  Between the curly brackets are the block that I passed into the print cohort method.  In the method I print out whatever object I put into the block.  Notice it printed out an Array, Hash, and a String!  See how this helps reuse your code?  Cool huh?  Also notice how an &amp; is in front of the argument block.  Then to call what is in the block I used block.call.  Then I call the method, and I added a block to the end of the method that I wanted the method to print.
         </p>
         <p>
-          Well hope you read through my class.  Feel scared about what you see?  Well don't worry, let me tell you all about it.  I wrote this because I have an interest in writing a project about a social media website based on rental units.  This is one class that will be in there that talks about the property that a landlord owns.
+          <h5>Procs</h5>
+          <pre>
+            def print_cohort(proc)
+              puts proc.call
+            end
+
+            proc = Proc.new { ["Andrew Dye", "Anna MacDonald", "Ayako Kurushima"] }
+
+            print_cohort(proc)
+            > Andrew Dye
+            > Anna MacDonald
+            > Ayako Kurushima
+
+            proc = Proc.new { {1 => "Angel Baek", 2 => "Benjamin Cheng", 3 => "Christopher Thomas Pelnar"} }
+
+            print_cohort(proc)
+            > {1=>"Angel Baek", 2=>"Benjamin Cheng", 3=>"Christopher Thomas Pelnar"}
+
+            proc = Proc.new { "Chris Lintecum, Morgan McCrory, Paul Clegg"] }
+
+            print_cohort(proc)
+            > Chris Lintecum, Morgan McCrory, Paul Clegg
+          </pre>
+          Proc, short for procedure, as you can see is similar to block.  One difference is that I save a block of code inside a variable.  Then I can call the code by using the variable.  Also noticed how my print_cohort method no longer needs the &amps; in front of the argument.
         </p>
-        <h5>Instance Variable</h5>
         <p>
-          Let's talk about the instance variable.  You will notice I use something interesting called attr_reader, attr_writer, and attr_accessor.  The nice thing about these, is that they help shorten your code from writing redundant getter and setter methods for your instance variable.  When you look under each of them, you will see the methods they replace.  attr_reader replaces the getter method, attr_writer replaces the setter method, and the attr_accessor replaces the getter and setter methods for an instance variable.
-        </p>
-        <p>
-          So you may ask, wait there are 3 different reasons to access these instance variables?  Why yes, and I hope I used the right example to explain these reasons.  The reason you want to use attr_reader when you only have read-only access to the instance variable is when you do not want the user to edit the instance variable.  Like in my example I have the address.  Well how I see it, a house will not move (let's forget about mobile homes please), and it would be quite silly to let the user change the address of the property once set in the first place.  Then you see a instance variable called future_expectation, which shows if in the future the house has a good and bad value in the future.  This is a variable where the user has no control on what this can be.  There are some outside factors that help determine this, and all the user can do is see this variable.
-        </p>
-        <p>
-          The second way you can access a variable is with attr_writer, where the user has write-only access to the instance variable.  Once set, you are not allowed to read it.  May sound funny, but there are reasons you want to do this.  My example is the tax instance variable.  I allow the user to type in how much tax is for the property, and it helps evaluates to future_expectation.  But I do not allow people to read it?  Well my reasoning is, if you want to sell the property, hide the fact about how much tax cost.  Yeah I'm shifty like that.  And well, I could not think of a good example...what? don't judge me.
-        </p>
-        <p>
-          The third way is the attr_accessor, where the user get full control of the instance variable.  This is what people think every variable should be, but sometimes it is nice to have the security of attr_reader and attr_writer.  Don't you think so?  I hope I don't have to explain fully of what attr_accessor too.  In my code, i  used the price instance variable as an example.  You want to be able to update the price of the property, as well as see it.  
-        </p>
-        <h5>Methods</h5>
-        <p>
-          Okay how about the methods?  The stuff that does action for my code.  I got the initialize method.  It takes in 2 arguments, which is the tax amount of the property and the address.  You call this by making a new instance of the Property class.  So as example, I can do this: Property.new(1000, "123 Fake St, Fake City, TX 12345")  So this makes a property that has a property tax of $1,000 and is at a Fake Street.  The tax amount and the address seems to also somehow help calculate the future_expectation.  Not sure how, but that is the wonder of the black box that happens there.  Then an estimated price is created by the future_expectation and the tax amount.  And remember that you are able to update the price, if you do not like this estimated price.
-        </p>
-        <p>
-          Then I have one more method called add_room.  In this method, you pass in the dimension of the room, and the material it is made of.  You want to use this if you need to add a room to the property.  It is not finished yet, but it will be implemented.  Based on the comments, it adds the room to the house, then update the tax value, and finally update the price of the property.
+          <h5>Lambdas</h5>
+          <pre>
+            def print_cohort(lambda)
+              puts lambda.call
+            end
+
+            l = lambda { ["Andrew Dye", "Anna MacDonald", "Ayako Kurushima"] }
+
+            print_cohort(l)
+            > Andrew Dye
+            > Anna MacDonald
+            > Ayako Kurushima
+
+            l = lambda  { {1 => "Angel Baek", 2 => "Benjamin Cheng", 3 => "Christopher Thomas Pelnar"} }
+
+            print_cohort(l)
+            > {1=>"Angel Baek", 2=>"Benjamin Cheng", 3=>"Christopher Thomas Pelnar"}
+
+            l = lambda  { "Chris Lintecum, Morgan McCrory, Paul Clegg"] }
+
+            print_cohort(l)
+            > Chris Lintecum, Morgan McCrory, Paul Clegg
+          </pre>
+          Here you see lambda is exactly the same as proc.  Hmm maybe I should show another example to show the difference between proc and lambda.
+          <pre>
+            def cohort
+              Proc.new { return ["Andrew Dye", "Anna MacDonald", "Ayako Kurushima"] }.call
+              return "Can't get here"
+            end
+
+            print cohort
+            > Andrew Dye
+            > Anna MacDonald
+            > Ayako Kurushima
+
+            def cohort(lambda)
+              lambda.call
+              return "Whoops, used method wrong.  I printed this instead"
+            end
+
+            l = lambda { return ["Andrew Dye", "Anna MacDonald", "Ayako Kurushima"] }
+
+            print cohort(l)
+            > Whoops, used method wrong.  I printed this instead
+          </pre>
+          As you can see when a proc has a return in it, the proc stops the method and does not let it continue to that return method.  While lambda returns it's object, but the method continued to still wrong and returned something I did not want.  The is another difference, let me show you that example:
+          <pre>
+            def cohort(proc)
+              proc.call("Angel Baek", "Benjamin Cheng", "Christopher Thomas Pelnar")
+            end
+
+            proc = Proc.new {|a,b,c,d| "#{a}, #{b}, #{c}, #{d}"}
+
+            print cohort(proc)
+            > Angel Baek, Benjamin Cheng, Christopher Thomas Pelnar, => nil
+
+
+            def cohort(lambda)
+              lambda.call("Angel Baek", "Benjamin Cheng", "Christopher Thomas Pelnar")
+            end
+
+            l = lambda {|a,b,c,d| "#{a}, #{b}, #{c}, #{d}"}
+
+            print cohort(l)
+            > ArgumentError: wrong number of arguments (3 for 4)
+          </pre>
+          You will notice that in the call method for both proc and lambda, I passed in 3 arguments, while the code requires 4 arguments.  With proc, a nil was passed to the d argument.  While with lamdba, you got an error.
         </p>
       </section>
     </main>
